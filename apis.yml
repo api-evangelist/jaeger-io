@@ -1,0 +1,228 @@
+aid: jaeger-io
+url: https://raw.githubusercontent.com/api-evangelist/jaeger-io/refs/heads/main/apis.yml
+apis:
+- aid: jaeger-io:jaeger-query-api
+  name: Jaeger Query API
+  tags:
+  - Observability
+  - Distributed Tracing
+  - Query
+  humanURL: https://www.jaegertracing.io/docs/latest/apis/
+  properties:
+  - url: https://www.jaegertracing.io/docs/latest/apis/
+    type: Documentation
+  - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v3/query_service.proto
+    type: ProtoBuf
+  - url: openapi/jaeger-query-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/jaeger-span-schema.json
+    type: JSONSchema
+  - url: json-ld/jaeger-io-context.jsonld
+    type: JSONLD
+  - type: NaftikoCapability
+    url: capabilities/query-services.yaml
+  - type: NaftikoCapability
+    url: capabilities/query-traces.yaml
+  - type: NaftikoCapability
+    url: capabilities/query-dependencies.yaml
+  description: The Jaeger Query API (api_v3) exposes services, operations, trace search, single-trace lookup,
+    and inter-service dependency graphs over HTTP (port 16686) and gRPC (port 16685). It is the
+    OpenTelemetry-aligned successor to the legacy /api/* HTTP endpoints and powers the Jaeger UI.
+- aid: jaeger-io:jaeger-collector-api
+  name: Jaeger Collector API
+  tags:
+  - Observability
+  - Distributed Tracing
+  - Ingest
+  humanURL: https://www.jaegertracing.io/docs/latest/apis/
+  properties:
+  - url: https://www.jaegertracing.io/docs/latest/apis/
+    type: Documentation
+  - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
+    type: ProtoBuf
+  - url: openapi/jaeger-collector-api-openapi.yml
+    type: OpenAPI
+  - type: NaftikoCapability
+    url: capabilities/collector-ingest.yaml
+  description: The Jaeger Collector ingests spans over multiple protocols — native Jaeger api_v2
+    (gRPC 14250, HTTP 14268), OTLP (gRPC 4317, HTTP 4318), and Zipkin (HTTP 9411) — and writes them
+    to the configured storage backend (Cassandra, OpenSearch, Elasticsearch, ClickHouse, Kafka, or
+    Badger). In Jaeger v2 the Collector is a customized OpenTelemetry Collector distribution.
+- aid: jaeger-io:jaeger-sampling-api
+  name: Jaeger Sampling Manager API
+  tags:
+  - Observability
+  - Distributed Tracing
+  - Sampling
+  humanURL: https://www.jaegertracing.io/docs/latest/sampling/
+  properties:
+  - url: https://www.jaegertracing.io/docs/latest/sampling/
+    type: Documentation
+  - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
+    type: ProtoBuf
+  - url: openapi/jaeger-sampling-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/jaeger-sampling-strategy-schema.json
+    type: JSONSchema
+  - type: NaftikoCapability
+    url: capabilities/sampling-config.yaml
+  description: Remote sampling configuration API. Tracer SDKs poll the Sampling Manager (HTTP port
+    5778, gRPC port 5779) to retrieve the active per-service sampling strategy — probabilistic,
+    rate-limiting, or per-operation. Backed by a static strategies file or by Jaeger's adaptive
+    sampling subsystem.
+name: Jaeger
+tags:
+- Observability
+- Distributed Tracing
+- APM
+- OpenTelemetry
+- CNCF
+- Cloud Native
+- Microservices
+- Open Source
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: Open Source
+common:
+- type: Portal
+  url: https://www.jaegertracing.io/
+- type: Documentation
+  url: https://www.jaegertracing.io/docs/
+- type: Documentation
+  name: APIs Reference
+  url: https://www.jaegertracing.io/docs/latest/apis/
+- type: Documentation
+  name: Architecture
+  url: https://www.jaegertracing.io/docs/latest/architecture/
+- type: Documentation
+  name: Deployment
+  url: https://www.jaegertracing.io/docs/latest/deployment/
+- type: Documentation
+  name: Sampling
+  url: https://www.jaegertracing.io/docs/latest/sampling/
+- type: GettingStarted
+  url: https://www.jaegertracing.io/docs/latest/getting-started/
+- type: GitHubOrganization
+  url: https://github.com/jaegertracing
+- type: SourceCode
+  name: jaegertracing/jaeger
+  url: https://github.com/jaegertracing/jaeger
+- type: SourceCode
+  name: jaegertracing/jaeger-idl
+  url: https://github.com/jaegertracing/jaeger-idl
+- type: SourceCode
+  name: jaegertracing/jaeger-ui
+  url: https://github.com/jaegertracing/jaeger-ui
+- type: SourceCode
+  name: jaegertracing/jaeger-operator
+  url: https://github.com/jaegertracing/jaeger-operator
+- type: SourceCode
+  name: jaegertracing/helm-charts
+  url: https://github.com/jaegertracing/helm-charts
+- type: SourceCode
+  name: jaegertracing/spark-dependencies
+  url: https://github.com/jaegertracing/spark-dependencies
+- type: SourceCode
+  name: jaegertracing/grafana-plugin
+  url: https://github.com/jaegertracing/grafana-plugin
+- type: SourceCode
+  name: jaegertracing/jaeger-clickhouse
+  url: https://github.com/jaegertracing/jaeger-clickhouse
+- type: SourceCode
+  name: jaegertracing/jaeger-vscode
+  url: https://github.com/jaegertracing/jaeger-vscode
+- type: Tool
+  name: Jaeger Operator for Kubernetes
+  url: https://github.com/jaegertracing/jaeger-operator
+- type: Tool
+  name: Helm Charts
+  url: https://github.com/jaegertracing/helm-charts
+- type: Tool
+  name: Grafana Plugin
+  url: https://github.com/jaegertracing/grafana-plugin
+- type: Tool
+  name: VS Code Extension
+  url: https://github.com/jaegertracing/jaeger-vscode
+- type: ContainerImage
+  name: Docker Hub — jaegertracing
+  url: https://hub.docker.com/u/jaegertracing
+- type: License
+  name: Apache 2.0
+  url: https://github.com/jaegertracing/jaeger/blob/main/LICENSE
+- type: Blog
+  url: https://medium.com/jaegertracing
+- type: Forum
+  name: CNCF Slack #jaeger
+  url: https://cloud-native.slack.com/archives/CGG7NFUJ3
+- type: SignUp
+  name: GitHub Discussions
+  url: https://github.com/jaegertracing/jaeger/discussions
+- type: Governance
+  name: GOVERNANCE.md
+  url: https://github.com/jaegertracing/jaeger/blob/main/GOVERNANCE.md
+- type: Maintainers
+  url: https://github.com/jaegertracing/jaeger/blob/main/MAINTAINERS.md
+- type: SecurityPolicy
+  url: https://github.com/jaegertracing/jaeger/blob/main/SECURITY.md
+- type: ThreatModel
+  url: https://github.com/jaegertracing/jaeger/blob/main/THREAT-MODEL.md
+- type: Adopters
+  url: https://github.com/jaegertracing/jaeger/blob/main/ADOPTERS.md
+- type: ChangeLog
+  url: https://github.com/jaegertracing/jaeger/blob/main/CHANGELOG.md
+- type: ContributingGuide
+  url: https://github.com/jaegertracing/jaeger/blob/main/CONTRIBUTING.md
+- type: ReleaseNotes
+  url: https://github.com/jaegertracing/jaeger/releases
+- type: Roadmap
+  url: https://github.com/orgs/jaegertracing/projects
+- type: Organization
+  name: CNCF Project Page
+  url: https://www.cncf.io/projects/jaeger/
+- type: Documentation
+  name: Model Context Protocol — OTLP
+  url: https://github.com/open-telemetry/opentelemetry-proto
+- type: Documentation
+  name: jaeger-idl Swagger (api_v3)
+  url: https://github.com/jaegertracing/jaeger-idl/tree/main/swagger/api_v3
+- type: Features
+  data:
+  - Distributed tracing platform — CNCF graduated project, originated at Uber, now community maintained
+  - Jaeger v2 is built on the OpenTelemetry Collector — first-class OTLP support on ports 4317/gRPC and 4318/HTTP
+  - Native Jaeger api_v2 ingest over gRPC (14250) and HTTP (14268) for legacy SDKs
+  - Zipkin v1/v2 compatibility on port 9411 for migration from Zipkin
+  - Query API v3 exposes services, operations, trace search, single-trace lookup, and dependency graphs over HTTP (16686) and gRPC (16685)
+  - Remote sampling — probabilistic, rate-limiting, per-operation, and adaptive strategies served via SamplingManager on port 5778/5779
+  - Pluggable storage — Cassandra, OpenSearch, Elasticsearch, ClickHouse, Kafka (buffered), Badger (embedded)
+  - Service Performance Monitoring (SPM) view — RED metrics derived from spans
+  - Service dependency graph computed offline via the spark-dependencies job
+  - Kubernetes-native deployment via the Jaeger Operator and official Helm charts
+  - All-in-one binary for local development with in-memory storage
+  - React UI bundled in the Query service plus a Grafana datasource plugin and VS Code extension
+  - SDKs deprecated in favor of OpenTelemetry SDKs (Go, Python, Java, JS, .NET, C++, Ruby, PHP)
+  - Apache 2.0 licensed; governance via GOVERNANCE.md and MAINTAINERS.md
+  sources:
+  - https://www.jaegertracing.io/
+  - https://www.jaegertracing.io/docs/latest/apis/
+  - https://www.jaegertracing.io/docs/latest/architecture/
+  - https://github.com/jaegertracing/jaeger
+  - https://github.com/jaegertracing/jaeger-idl
+  updated: '2026-05-25'
+created: '2026-05-25T00:00:00.000Z'
+modified: '2026-05-25'
+position: Consuming
+description: Jaeger is an open-source, end-to-end distributed tracing platform for monitoring and
+  troubleshooting transactions in complex distributed systems. Originally built and open-sourced
+  by Uber Technologies in 2017, Jaeger was donated to the Cloud Native Computing Foundation, became
+  an incubating project in 2017, and graduated in 2019. Jaeger v2, released in November 2024, is a
+  customized distribution of the OpenTelemetry Collector and is the OTLP-native generation of the
+  platform. It exposes three primary APIs — the Query API (read), the Collector API (span ingest),
+  and the Sampling Manager API (remote sampling configuration) — across HTTP and gRPC, supports six
+  pluggable storage backends, and ships with a Kubernetes Operator, Helm charts, a React UI, and a
+  Grafana plugin.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'

@@ -1,0 +1,30 @@
+name: Jaeger Query — Service Dependency Graph
+slug: query-dependencies
+version: 0.1.0
+description: |-
+  Retrieve the call-graph of services derived from observed spans for a
+  selected time window. Powers the dependency-graph view in the Jaeger UI
+  and is the data source for service-mesh-style topology visualizations.
+api:
+  id: jaeger:jaeger-query-api
+  openapi: openapi/jaeger-query-api-openapi.yml
+operations:
+  - operationId: QueryService_GetDependencies
+    method: GET
+    path: /api/v3/dependencies
+    summary: Get inter-service dependency edges for a time range.
+inputs:
+  - name: startTime
+    type: string
+    format: date-time
+    required: true
+  - name: endTime
+    type: string
+    format: date-time
+    required: true
+outputs:
+  - name: dependencies
+    type: object[]
+    description: Edges containing parent service, child service, and call count.
+governance:
+  computation: Dependencies are derived offline by the spark-dependencies job for production deployments or in-memory by the Query service for development.

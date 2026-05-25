@@ -1,0 +1,69 @@
+name: Jaeger Vocabulary
+description: |-
+  Operational and capability vocabulary used to classify Jaeger as an
+  observability platform within the API Evangelist taxonomy. Maps Jaeger
+  concepts to schema.org, OpenTelemetry semantic conventions, and CNCF
+  observability terms.
+domain:
+  primary: Observability
+  secondary:
+    - Distributed Tracing
+    - Application Performance Monitoring
+    - Cloud Native
+concepts:
+  - term: Trace
+    definition: An end-to-end execution path of a single logical request through a distributed system, modeled as a DAG of spans.
+    aliases: [Request Trace, Distributed Trace]
+    otelMapping: trace
+  - term: Span
+    definition: A single named, timed operation representing one unit of work in a trace.
+    otelMapping: span
+  - term: Service
+    definition: A logical service that emits spans, identified by its service.name attribute.
+    otelMapping: resource.service.name
+  - term: Process
+    definition: A running instance of a service that produced a set of spans.
+  - term: Sampling Strategy
+    definition: A configuration that determines whether a given span is recorded. Jaeger supports probabilistic, rate-limiting, per-operation, and adaptive strategies.
+  - term: Dependency
+    definition: A directed edge between two services derived from observed parent/child span pairs.
+  - term: SPM
+    definition: Service Performance Monitoring — RED-metrics (rate, errors, duration) derived from spans and surfaced in the Jaeger UI.
+protocols:
+  - name: OTLP
+    role: Primary wire protocol in Jaeger v2 (ports 4317/gRPC, 4318/HTTP).
+  - name: Jaeger api_v2
+    role: Legacy native protobuf protocol over gRPC (14250) and HTTP gateway (14268).
+  - name: Zipkin
+    role: Compatibility format on port 9411.
+components:
+  - name: Collector
+    role: Span ingest, validation, and write to storage.
+  - name: Query
+    role: HTTP/gRPC read API plus React UI.
+  - name: Agent
+    role: Deprecated in v2 — replaced by OpenTelemetry SDKs and OTel Collector.
+  - name: Ingester
+    role: Reads spans from Kafka and writes to storage in the Kafka-buffered topology.
+  - name: All-in-One
+    role: Single-binary development distribution combining Collector, Query, and an in-memory store.
+storageBackends:
+  - Cassandra
+  - OpenSearch
+  - Elasticsearch
+  - ClickHouse
+  - Kafka
+  - Badger
+governance:
+  org: Cloud Native Computing Foundation
+  status: Graduated
+  license: Apache-2.0
+tags:
+  - Observability
+  - Distributed Tracing
+  - APM
+  - OpenTelemetry
+  - CNCF
+  - Cloud Native
+  - Microservices
+  - Open Source

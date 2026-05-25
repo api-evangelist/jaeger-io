@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jaeger-io/main/json-schema/jaeger-span-schema.json",
+  "title": "Jaeger Span",
+  "description": "A single unit of work in a distributed trace as modeled by the Jaeger api_v2 / jaeger-idl model.proto. Each span belongs to a trace and a process (service) and may reference parent spans.",
+  "type": "object",
+  "required": ["traceId", "spanId", "operationName", "startTime", "duration"],
+  "properties": {
+    "traceId": {
+      "type": "string",
+      "description": "16-byte trace identifier as a 32-character hex string."
+    },
+    "spanId": {
+      "type": "string",
+      "description": "8-byte span identifier as a 16-character hex string."
+    },
+    "operationName": {
+      "type": "string",
+      "description": "Human-readable operation name (often the RPC/method name)."
+    },
+    "references": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SpanRef" }
+    },
+    "flags": {
+      "type": "integer",
+      "description": "Trace flags bitfield aligned with W3C Trace Context."
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Span duration as a protobuf Duration string (e.g. '0.250s')."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/KeyValue" }
+    },
+    "logs": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Log" }
+    },
+    "process": { "$ref": "#/$defs/Process" }
+  },
+  "$defs": {
+    "SpanRef": {
+      "type": "object",
+      "properties": {
+        "traceId": { "type": "string" },
+        "spanId": { "type": "string" },
+        "refType": { "type": "string", "enum": ["CHILD_OF", "FOLLOWS_FROM"] }
+      }
+    },
+    "KeyValue": {
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "vType": { "type": "string", "enum": ["STRING", "BOOL", "INT64", "FLOAT64", "BINARY"] },
+        "vStr": { "type": "string" },
+        "vBool": { "type": "boolean" },
+        "vInt64": { "type": "integer" },
+        "vFloat64": { "type": "number" },
+        "vBinary": { "type": "string", "contentEncoding": "base64" }
+      }
+    },
+    "Log": {
+      "type": "object",
+      "properties": {
+        "timestamp": { "type": "string", "format": "date-time" },
+        "fields": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/KeyValue" }
+        }
+      }
+    },
+    "Process": {
+      "type": "object",
+      "required": ["serviceName"],
+      "properties": {
+        "serviceName": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/KeyValue" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/jaeger-io/main/json-schema/jaeger-sampling-strategy-schema.json",
+  "title": "Jaeger Sampling Strategy Response",
+  "description": "Response returned by the Jaeger Sampling Manager (port 5778/5779). Treat as a union — exactly one of probabilisticSampling, rateLimitingSampling, or operationSampling is populated.",
+  "type": "object",
+  "properties": {
+    "strategyType": {
+      "type": "string",
+      "enum": ["PROBABILISTIC", "RATE_LIMITING"]
+    },
+    "probabilisticSampling": {
+      "type": "object",
+      "properties": {
+        "samplingRate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "rateLimitingSampling": {
+      "type": "object",
+      "properties": {
+        "maxTracesPerSecond": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "operationSampling": {
+      "type": "object",
+      "properties": {
+        "defaultSamplingProbability": { "type": "number" },
+        "defaultLowerBoundTracesPerSecond": { "type": "number" },
+        "defaultUpperBoundTracesPerSecond": { "type": "number" },
+        "perOperationStrategies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "operation": { "type": "string" },
+              "probabilisticSampling": {
+                "type": "object",
+                "properties": {
+                  "samplingRate": { "type": "number" }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

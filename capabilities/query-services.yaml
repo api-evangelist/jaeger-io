@@ -1,0 +1,36 @@
+name: Jaeger Query — Services and Operations
+slug: query-services
+version: 0.1.0
+description: |-
+  List services that have reported traces and enumerate the operation names
+  observed for a chosen service. Use this capability to populate service/operation
+  pickers in a UI or to seed downstream trace search.
+api:
+  id: jaeger:jaeger-query-api
+  openapi: openapi/jaeger-query-api-openapi.yml
+operations:
+  - operationId: QueryService_GetServices
+    method: GET
+    path: /api/v3/services
+    summary: List all services that have reported spans.
+  - operationId: QueryService_GetOperations
+    method: GET
+    path: /api/v3/operations
+    summary: List operations for a specific service.
+inputs:
+  - name: service
+    type: string
+    required: false
+    description: Service name to enumerate operations for.
+  - name: spanKind
+    type: string
+    required: false
+    description: Optional OpenTelemetry SpanKind filter.
+outputs:
+  - name: services
+    type: string[]
+  - name: operations
+    type: object[]
+governance:
+  authentication: None by default — the Query API is typically deployed behind an internal network or reverse proxy with auth.
+  rateLimits: None enforced at the API layer; bounded by Query service resources.

@@ -1,0 +1,54 @@
+name: Jaeger Query — Trace Search and Retrieval
+slug: query-traces
+version: 0.1.0
+description: |-
+  Search for traces using filters (service, operation, tags, duration, time
+  range) and fetch full span data by trace ID. Supports both lightweight
+  summary streaming and full-detail trace retrieval.
+api:
+  id: jaeger:jaeger-query-api
+  openapi: openapi/jaeger-query-api-openapi.yml
+operations:
+  - operationId: QueryService_FindTraceSummaries
+    method: GET
+    path: /api/v3/trace-summaries
+    summary: Search traces and return lightweight summaries (streamed).
+  - operationId: QueryService_FindTraces
+    method: GET
+    path: /api/v3/traces
+    summary: Search traces and return full span data (streamed).
+  - operationId: QueryService_GetTrace
+    method: GET
+    path: /api/v3/traces/{trace_id}
+    summary: Get a single trace by ID.
+inputs:
+  - name: query.serviceName
+    type: string
+    description: Service to search within.
+  - name: query.operationName
+    type: string
+    required: false
+  - name: query.attributes
+    type: object
+    description: Span attribute filter map.
+  - name: query.startTimeMin
+    type: string
+    format: date-time
+  - name: query.startTimeMax
+    type: string
+    format: date-time
+  - name: query.durationMin
+    type: string
+    description: Protobuf Duration.
+  - name: query.durationMax
+    type: string
+  - name: query.searchDepth
+    type: integer
+    description: Maximum number of traces to return.
+outputs:
+  - name: traces
+    type: object[]
+    description: Sequence of TracesData (OTLP-aligned).
+governance:
+  streaming: true
+  notes: The v3 API uses Server-Sent Events / gRPC streaming for large result sets.
