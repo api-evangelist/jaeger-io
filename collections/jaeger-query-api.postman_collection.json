@@ -1,0 +1,1339 @@
+{
+  "item": [
+    {
+      "id": "b5d5fe05-397d-4cec-9228-f409577e3ca6",
+      "name": "QueryService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ef32e0ca-bd43-4041-b4db-49082d5da4b5",
+          "name": "Query Service Get Dependencies",
+          "request": {
+            "name": "Query Service Get Dependencies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "dependencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>",
+                  "description": "Required. The start time for the time range to search dependencies."
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<dateTime>",
+                  "description": "Required. The end time for the time range to search dependencies."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdf04ebe-1d17-4cd8-87d6-4f3cecb4bb6a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dependencies\": [\n    {\n      \"parent\": \"string\",\n      \"child\": \"string\",\n      \"callCount\": \"string\"\n    },\n    {\n      \"parent\": \"string\",\n      \"child\": \"string\",\n      \"callCount\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf8a0b95-84a5-40c3-9032-910977381ec2",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "dependencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 373,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 8968,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fdcaaa36-baad-4eea-9a2a-585a1103cd7c",
+          "name": "Query Service Get Operations",
+          "request": {
+            "name": "Query Service Get Operations",
+            "description": {
+              "content": "GetOperations returns operation names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "operations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<string>",
+                  "description": "Required service name."
+                },
+                {
+                  "disabled": false,
+                  "key": "spanKind",
+                  "value": "<string>",
+                  "description": "Optional span kind."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97883438-5485-47b8-b2a5-670696d8164b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "operations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spanKind",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"operations\": [\n    {\n      \"name\": \"string\",\n      \"spanKind\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"spanKind\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d5876bd-11ad-4d81-9159-f85ea7b4c06a",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "operations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "spanKind",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "826c76dd-7f78-4be5-a54f-2c51864a2397",
+          "name": "Query Service Get Services",
+          "request": {
+            "name": "Query Service Get Services",
+            "description": {
+              "content": "GetServices returns service names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ee248fb-db25-47aa-8ca6-a68bfc3d6308",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"services\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc09e01e-0fe6-4163-bc29-7f0d9d3eae3a",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81ca2334-8e56-4c91-9077-58985153cf8f",
+          "name": "Query Service Find Trace Summaries",
+          "request": {
+            "name": "Query Service Find Trace Summaries",
+            "description": {
+              "content": "FindTraceSummaries searches for traces matching the given query and streams\n back lightweight summary information for each matching trace. Each response\n chunk may contain one or more summaries. Use this instead of FindTraces when\n full span data is not required (e.g. search results page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "trace-summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.serviceName",
+                  "value": "<string>",
+                  "description": "service_name filters spans generated by a specific service."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.operationName",
+                  "value": "<string>",
+                  "description": "operation_name filters spans by a specific operation / span name."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.startTimeMin",
+                  "value": "<dateTime>",
+                  "description": "start_time_min is the start of the time interval (inclusive) for the query.\n Only traces with spans that started on or after this time will be returned.\n\n The HTTP API uses RFC-3339ns format.\n\n This field is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.startTimeMax",
+                  "value": "<dateTime>",
+                  "description": "start_time_max is the end of the time interval (exclusive) for the query.\n Only traces with spans that started before this time will be returned.\n\n The HTTP API uses RFC-3339ns format.\n\n This field is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.durationMin",
+                  "value": "<string>",
+                  "description": "duration_min is the minimum duration of a span in the trace.\n Only traces with spans that lasted at least this long will be returned.\n\n The HTTP API uses Golang's time format (e.g., \"10s\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.durationMax",
+                  "value": "<string>",
+                  "description": "duration_max is the maximum duration of a span in the trace.\n Only traces with spans that lasted at most this long will be returned.\n\n The HTTP API uses Golang's time format (e.g., \"10s\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.searchDepth",
+                  "value": "<integer>",
+                  "description": "search_depth defines the maximum search depth. Depending on the backend storage implementation,\n this may behave like an SQL `LIMIT` clause. However, some implementations might not support\n precise limits, and a larger value generally results in more traces being returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.rawTraces",
+                  "value": "<boolean>",
+                  "description": "If set to true, the response will exclude any enrichments to the trace, such as clock skew adjustments.\n The trace will be returned exactly as stored.\n\n This field is optional."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96a44347-7056-4a90-be87-a51e209cd4b3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "trace-summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.serviceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.operationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.startTimeMin",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.startTimeMax",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.durationMin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.durationMax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.searchDepth",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summaries\": [\n    {\n      \"traceId\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootOperationName\": \"string\",\n      \"minStartTimeUnixNano\": \"string\",\n      \"maxEndTimeUnixNano\": \"string\",\n      \"spanCount\": 1283,\n      \"errorSpanCount\": 6741,\n      \"orphanSpanCount\": 4242,\n      \"services\": [\n        {\n          \"name\": \"string\",\n          \"spanCount\": 6874,\n          \"errorSpanCount\": 2396\n        },\n        {\n          \"name\": \"string\",\n          \"spanCount\": 7874,\n          \"errorSpanCount\": 8989\n        }\n      ]\n    },\n    {\n      \"traceId\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootOperationName\": \"string\",\n      \"minStartTimeUnixNano\": \"string\",\n      \"maxEndTimeUnixNano\": \"string\",\n      \"spanCount\": 8708,\n      \"errorSpanCount\": 1375,\n      \"orphanSpanCount\": 949,\n      \"services\": [\n        {\n          \"name\": \"string\",\n          \"spanCount\": 8907,\n          \"errorSpanCount\": 8015\n        },\n        {\n          \"name\": \"string\",\n          \"spanCount\": 9811,\n          \"errorSpanCount\": 5605\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cf72807-4ec4-408a-9c02-936f0c8eaa17",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "trace-summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.serviceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.operationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.startTimeMin",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.startTimeMax",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.durationMin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.durationMax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.searchDepth",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48400ceb-0192-4f00-94dd-5262adea52d2",
+          "name": "Query Service Find Trace Summaries",
+          "request": {
+            "name": "Query Service Find Trace Summaries",
+            "description": {
+              "content": "FindTraceSummaries searches for traces matching the given query and streams\n back lightweight summary information for each matching trace. Each response\n chunk may contain one or more summaries. Use this instead of FindTraces when\n full span data is not required (e.g. search results page).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "trace-summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"<string>\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9cb3a8bb-a608-489d-847d-385132cb3bb3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "trace-summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"{\\\"http.status_code\\\":\\\"200\\\"}\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"summaries\": [\n    {\n      \"traceId\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootOperationName\": \"string\",\n      \"minStartTimeUnixNano\": \"string\",\n      \"maxEndTimeUnixNano\": \"string\",\n      \"spanCount\": 343,\n      \"errorSpanCount\": 8904,\n      \"orphanSpanCount\": 3155,\n      \"services\": [\n        {\n          \"name\": \"string\",\n          \"spanCount\": 1975,\n          \"errorSpanCount\": 3331\n        },\n        {\n          \"name\": \"string\",\n          \"spanCount\": 6727,\n          \"errorSpanCount\": 2383\n        }\n      ]\n    },\n    {\n      \"traceId\": \"string\",\n      \"rootServiceName\": \"string\",\n      \"rootOperationName\": \"string\",\n      \"minStartTimeUnixNano\": \"string\",\n      \"maxEndTimeUnixNano\": \"string\",\n      \"spanCount\": 6152,\n      \"errorSpanCount\": 1618,\n      \"orphanSpanCount\": 4767,\n      \"services\": [\n        {\n          \"name\": \"string\",\n          \"spanCount\": 4890,\n          \"errorSpanCount\": 7231\n        },\n        {\n          \"name\": \"string\",\n          \"spanCount\": 284,\n          \"errorSpanCount\": 1972\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f001962f-7b4f-4400-9ac6-14c1c8df72ff",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "trace-summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"{\\\"http.status_code\\\":\\\"200\\\"}\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43812a28-7a65-4d7c-84e3-d74052347efe",
+          "name": "Query Service Find Traces",
+          "request": {
+            "name": "Query Service Find Traces",
+            "description": {
+              "content": "FindTraces searches for traces.\n See GetTrace for JSON unmarshalling.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query.serviceName",
+                  "value": "<string>",
+                  "description": "service_name filters spans generated by a specific service."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.operationName",
+                  "value": "<string>",
+                  "description": "operation_name filters spans by a specific operation / span name."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.startTimeMin",
+                  "value": "<dateTime>",
+                  "description": "start_time_min is the start of the time interval (inclusive) for the query.\n Only traces with spans that started on or after this time will be returned.\n\n The HTTP API uses RFC-3339ns format.\n\n This field is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.startTimeMax",
+                  "value": "<dateTime>",
+                  "description": "start_time_max is the end of the time interval (exclusive) for the query.\n Only traces with spans that started before this time will be returned.\n\n The HTTP API uses RFC-3339ns format.\n\n This field is required."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.durationMin",
+                  "value": "<string>",
+                  "description": "duration_min is the minimum duration of a span in the trace.\n Only traces with spans that lasted at least this long will be returned.\n\n The HTTP API uses Golang's time format (e.g., \"10s\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.durationMax",
+                  "value": "<string>",
+                  "description": "duration_max is the maximum duration of a span in the trace.\n Only traces with spans that lasted at most this long will be returned.\n\n The HTTP API uses Golang's time format (e.g., \"10s\")."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.searchDepth",
+                  "value": "<integer>",
+                  "description": "search_depth defines the maximum search depth. Depending on the backend storage implementation,\n this may behave like an SQL `LIMIT` clause. However, some implementations might not support\n precise limits, and a larger value generally results in more traces being returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "query.rawTraces",
+                  "value": "<boolean>",
+                  "description": "If set to true, the response will exclude any enrichments to the trace, such as clock skew adjustments.\n The trace will be returned exactly as stored.\n\n This field is optional."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fecdffd-1017-40e6-8994-315df718f444",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.serviceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.operationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.startTimeMin",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.startTimeMax",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.durationMin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.durationMax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.searchDepth",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resourceSpans\": [\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 4522\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    },\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 4937\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29960d7f-3b50-4484-9c93-9227272b9117",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query.serviceName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.operationName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.startTimeMin",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.startTimeMax",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "query.durationMin",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.durationMax",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "query.searchDepth",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "query.rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f96e5ca-1668-48c2-a182-1e02a8ae6d61",
+          "name": "Query Service Find Traces Post",
+          "request": {
+            "name": "Query Service Find Traces Post",
+            "description": {
+              "content": "FindTraces searches for traces.\n See GetTrace for JSON unmarshalling.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"<string>\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da8850b1-10c3-4070-9035-c62355cc9262",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"{\\\"http.status_code\\\":\\\"200\\\"}\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resourceSpans\": [\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 5682\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    },\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 2791\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4070dad-f959-44cc-85a9-f1e4aff6a07f",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"serviceName\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"attributes\": \"{\\\"http.status_code\\\":\\\"200\\\"}\",\n    \"startTimeMin\": \"<dateTime>\",\n    \"startTimeMax\": \"<dateTime>\",\n    \"durationMin\": \"<string>\",\n    \"durationMax\": \"<string>\",\n    \"searchDepth\": \"<integer>\",\n    \"rawTraces\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7613b15d-dffa-48ea-a023-fb6c16336cab",
+          "name": "Query Service Get Trace",
+          "request": {
+            "name": "Query Service Get Trace",
+            "description": {
+              "content": "GetTrace returns a single trace.\n Note that the JSON response over HTTP is wrapped into result envelope \"{\"result\": ...}\"\n It means that the JSON response cannot be directly unmarshalled using JSONPb.\n This can be fixed by first parsing into user-defined envelope with standard JSON library\n or string manipulation to remove the envelope. Alternatively generate objects using OpenAPI.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v3",
+                "traces",
+                ":traceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startTime",
+                  "value": "<dateTime>",
+                  "description": "Optional. The start time to search trace ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "endTime",
+                  "value": "<dateTime>",
+                  "description": "Optional. The end time to search trace ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "rawTraces",
+                  "value": "<boolean>",
+                  "description": "Optional. If set to true, the response will not include any\n enrichments to the trace, such as clock skew adjustment.\n Instead, the trace will be returned exactly as stored."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "traceId",
+                  "description": "(Required) Hex encoded 64 or 128 bit trace ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b6f5bc9-e551-4de1-a657-ad676806ff33",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceId",
+                      "description": "(Required) Hex encoded 64 or 128 bit trace ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resourceSpans\": [\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 5682\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    },\n    {\n      \"resource\": {\n        \"attributes\": [\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"key\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"droppedAttributesCount\": 2791\n      },\n      \"scopeSpans\": [\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        },\n        {\n          \"scope\": {\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"attributes\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"droppedAttributesCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"spans\": [\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"traceId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"spanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"traceState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"parentSpanId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"flags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"name\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"kind\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"endTimeUnixNano\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"attributes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedAttributesCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"events\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedEventsCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"links\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"droppedLinksCount\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"status\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"schemaUrl\": \"string\"\n        }\n      ],\n      \"schemaUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df8e4e33-4c92-48f9-9350-7406b8a0850e",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v3",
+                    "traces",
+                    ":traceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "endTime",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rawTraces",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "traceId",
+                      "description": "(Required) Hex encoded 64 or 128 bit trace ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2017,\n  \"message\": \"string\",\n  \"details\": [\n    {\n      \"@type\": \"string\"\n    },\n    {\n      \"@type\": \"string\",\n      \"key_0\": 7651.518206020374,\n      \"key_1\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:16686",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5ae25e6c-c2f0-49b2-86f4-b773efe4e417",
+    "name": "Jaeger Query API (v3)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Jaeger Query API v3 — the read API exposed by the Jaeger Query service on\nport 16686 (HTTP) and 16685 (gRPC). Provides endpoints to look up services,\noperations, trace summaries, individual traces, and inter-service\ndependency graphs. This is the OpenTelemetry-aligned successor to the\nlegacy /api/* HTTP API.",
+      "type": "text/plain"
+    }
+  }
+}
