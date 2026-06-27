@@ -123,16 +123,16 @@ common:
   - type: SourceCode
     name: jaegertracing/jaeger-vscode
     url: https://github.com/jaegertracing/jaeger-vscode
-  - type: Tool
+  - type: Tools
     name: Jaeger Operator for Kubernetes
     url: https://github.com/jaegertracing/jaeger-operator
-  - type: Tool
+  - type: Tools
     name: Helm Charts
     url: https://github.com/jaegertracing/helm-charts
-  - type: Tool
+  - type: Tools
     name: Grafana Plugin
     url: https://github.com/jaegertracing/grafana-plugin
-  - type: Tool
+  - type: Tools
     name: VS Code Extension
     url: https://github.com/jaegertracing/jaeger-vscode
   - type: ContainerImage
@@ -143,10 +143,10 @@ common:
     url: https://github.com/jaegertracing/jaeger/blob/main/LICENSE
   - type: Blog
     url: https://medium.com/jaegertracing
-  - type: Forum
+  - type: Forums
     name: CNCF Slack
     url: https://cloud-native.slack.com/archives/CGG7NFUJ3
-  - type: SignUp
+  - type: Signup
     name: GitHub Discussions
     url: https://github.com/jaegertracing/jaeger/discussions
   - type: Governance
@@ -166,7 +166,7 @@ common:
     url: https://github.com/jaegertracing/jaeger/blob/main/CONTRIBUTING.md
   - type: ReleaseNotes
     url: https://github.com/jaegertracing/jaeger/releases
-  - type: Roadmap
+  - type: RoadMap
     url: https://github.com/orgs/jaegertracing/projects
   - type: Organization
     name: CNCF Project Page
