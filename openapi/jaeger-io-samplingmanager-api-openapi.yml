@@ -1,32 +1,34 @@
-# Hand-derived from https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
-# Jaeger SamplingManager — the remote sampler that SDKs poll to retrieve
-# per-service sampling strategies.
-
 openapi: 3.0.3
 info:
-  title: Jaeger Sampling Manager API (api_v2)
+  title: Jaeger Collector API (api_v2) CollectorService SamplingManager API
   version: '2.0'
-  description: |-
-    Remote sampling configuration API served by the Jaeger Collector / All-in-One
-    on port 5778 (HTTP) and 5779 (gRPC). Client SDKs poll this endpoint to retrieve
-    the active sampling strategy (probabilistic, rate-limiting, or per-operation)
-    for a given service.
+  description: 'Jaeger Collector ingest API. The Collector accepts span batches over gRPC
+
+    on port 14250 (`jaeger.api_v2.CollectorService`) and over the HTTP gateway
+
+    at `/api/v2/spans`. Jaeger v2 (since November 2024) also accepts OTLP
+
+    natively on ports 4317 (gRPC) and 4318 (HTTP) and Zipkin on 9411; this
+
+    spec documents the native legacy api_v2 surface.'
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0
 servers:
-  - url: http://localhost:5778
-    description: Default Jaeger remote sampler endpoint
+- url: http://localhost:14268
+  description: Jaeger Collector legacy HTTP endpoint
+tags:
+- name: SamplingManager
 paths:
   /api/v2/samplingStrategy:
     post:
       summary: Get Sampling Strategy
-      description: |-
-        Retrieve the sampling strategy for the named service. The gRPC equivalent
-        is `jaeger.api_v2.SamplingManager/GetSamplingStrategy`.
+      description: 'Retrieve the sampling strategy for the named service. The gRPC equivalent
+
+        is `jaeger.api_v2.SamplingManager/GetSamplingStrategy`.'
       operationId: getSamplingStrategy
       tags:
-        - SamplingManager
+      - SamplingManager
       requestBody:
         required: true
         content:
@@ -43,20 +45,21 @@ paths:
   /sampling:
     get:
       summary: Get Sampling Strategy (Legacy)
-      description: |-
-        Legacy HTTP form used by older Jaeger SDKs. The Collector / agent
+      description: 'Legacy HTTP form used by older Jaeger SDKs. The Collector / agent
+
         returns the same SamplingStrategyResponse JSON; service name is given
-        via the `service` query parameter.
+
+        via the `service` query parameter.'
       operationId: getSamplingStrategyLegacy
       tags:
-        - SamplingManager
+      - SamplingManager
       parameters:
-        - name: service
-          in: query
-          required: true
-          schema:
-            type: string
-          description: Service name to look up.
+      - name: service
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Service name to look up.
       responses:
         '200':
           description: Sampling strategy for the requested service.
@@ -66,38 +69,31 @@ paths:
                 $ref: '#/components/schemas/SamplingStrategyResponse'
 components:
   schemas:
-    SamplingStrategyParameters:
-      type: object
-      required:
-        - serviceName
-      properties:
-        serviceName:
-          type: string
-          description: Required service identifier.
     SamplingStrategyResponse:
       type: object
-      description: |-
-        Union-style response — exactly one of `probabilisticSampling`,
-        `rateLimitingSampling`, or `operationSampling` will be populated.
+      description: 'Union-style response — exactly one of `probabilisticSampling`,
+
+        `rateLimitingSampling`, or `operationSampling` will be populated.'
       properties:
         strategyType:
           type: string
-          enum: [PROBABILISTIC, RATE_LIMITING]
+          enum:
+          - PROBABILISTIC
+          - RATE_LIMITING
         probabilisticSampling:
           $ref: '#/components/schemas/ProbabilisticSamplingStrategy'
         rateLimitingSampling:
           $ref: '#/components/schemas/RateLimitingSamplingStrategy'
         operationSampling:
           $ref: '#/components/schemas/PerOperationSamplingStrategies'
-    ProbabilisticSamplingStrategy:
+    SamplingStrategyParameters:
       type: object
+      required:
+      - serviceName
       properties:
-        samplingRate:
-          type: number
-          format: double
-          minimum: 0
-          maximum: 1
-          description: Sampling probability in the range [0.0, 1.0].
+        serviceName:
+          type: string
+          description: Required service identifier.
     RateLimitingSamplingStrategy:
       type: object
       properties:
@@ -105,13 +101,6 @@ components:
           type: integer
           format: int32
           description: Maximum number of traces sampled per second per service instance.
-    OperationSamplingStrategy:
-      type: object
-      properties:
-        operation:
-          type: string
-        probabilisticSampling:
-          $ref: '#/components/schemas/ProbabilisticSamplingStrategy'
     PerOperationSamplingStrategies:
       type: object
       properties:
@@ -128,3 +117,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OperationSamplingStrategy'
+    ProbabilisticSamplingStrategy:
+      type: object
+      properties:
+        samplingRate:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1
+          description: Sampling probability in the range [0.0, 1.0].
+    OperationSamplingStrategy:
+      type: object
+      properties:
+        operation:
+          type: string
+        probabilisticSampling:
+          $ref: '#/components/schemas/ProbabilisticSamplingStrategy'
