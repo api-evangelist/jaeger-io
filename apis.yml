@@ -1,67 +1,81 @@
 aid: jaeger-io
 url: https://raw.githubusercontent.com/api-evangelist/jaeger-io/refs/heads/main/apis.yml
 apis:
-  - aid: jaeger-io:jaeger-query-api
-    name: Jaeger Query API
-    tags:
-      - Observability
-      - Distributed Tracing
-      - Query
-    humanURL: https://www.jaegertracing.io/docs/latest/apis/
-    properties:
-      - url: https://www.jaegertracing.io/docs/latest/apis/
-        type: Documentation
-      - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v3/query_service.proto
-        type: ProtoBuf
-      - url: openapi/jaeger-query-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/jaeger-span-schema.json
-        type: JSONSchema
-      - url: json-ld/jaeger-io-context.jsonld
-        type: JSONLD
-    description: >-
-      The Jaeger Query API (api_v3) exposes services, operations, trace search, single-trace lookup, and inter-service
-      dependency graphs over HTTP (port 16686) and gRPC (port 16685). It is the OpenTelemetry-aligned successor to the
-      legacy /api/* HTTP endpoints and powers the Jaeger UI.
-  - aid: jaeger-io:jaeger-collector-api
-    name: Jaeger Collector API
-    tags:
-      - Observability
-      - Distributed Tracing
-      - Ingest
-    humanURL: https://www.jaegertracing.io/docs/latest/apis/
-    properties:
-      - url: https://www.jaegertracing.io/docs/latest/apis/
-        type: Documentation
-      - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
-        type: ProtoBuf
-      - url: openapi/jaeger-collector-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Jaeger Collector ingests spans over multiple protocols — native Jaeger api_v2 (gRPC 14250, HTTP 14268), OTLP
-      (gRPC 4317, HTTP 4318), and Zipkin (HTTP 9411) — and writes them to the configured storage backend (Cassandra,
-      OpenSearch, Elasticsearch, ClickHouse, Kafka, or Badger). In Jaeger v2 the Collector is a customized OpenTelemetry
-      Collector distribution.
-  - aid: jaeger-io:jaeger-sampling-api
-    name: Jaeger Sampling Manager API
-    tags:
-      - Observability
-      - Distributed Tracing
-      - Sampling
-    humanURL: https://www.jaegertracing.io/docs/latest/sampling/
-    properties:
-      - url: https://www.jaegertracing.io/docs/latest/sampling/
-        type: Documentation
-      - url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
-        type: ProtoBuf
-      - url: openapi/jaeger-sampling-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/jaeger-sampling-strategy-schema.json
-        type: JSONSchema
-    description: >-
-      Remote sampling configuration API. Tracer SDKs poll the Sampling Manager (HTTP port 5778, gRPC port 5779) to
-      retrieve the active per-service sampling strategy — probabilistic, rate-limiting, or per-operation. Backed by a
-      static strategies file or by Jaeger's adaptive sampling subsystem.
+- aid: jaeger-io:jaeger-io-collectorservice-api
+  name: Jaeger CollectorService API
+  description: The CollectorService API from Jaeger — 1 operation(s) for collectorservice.
+  humanURL: https://www.jaegertracing.io/docs/latest/apis/
+  tags:
+  - CollectorService
+  properties:
+  - type: OpenAPI
+    url: openapi/jaeger-io-collectorservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/apis/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v3/query_service.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-span-schema.json
+  - type: JSONLD
+    url: json-ld/jaeger-io-context.jsonld
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/sampling/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-sampling-strategy-schema.json
+- aid: jaeger-io:jaeger-io-queryservice-api
+  name: Jaeger QueryService API
+  description: The QueryService API from Jaeger — 6 operation(s) for queryservice.
+  humanURL: https://www.jaegertracing.io/docs/latest/apis/
+  tags:
+  - QueryService
+  properties:
+  - type: OpenAPI
+    url: openapi/jaeger-io-queryservice-api-openapi.yml
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/apis/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v3/query_service.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-span-schema.json
+  - type: JSONLD
+    url: json-ld/jaeger-io-context.jsonld
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/sampling/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-sampling-strategy-schema.json
+- aid: jaeger-io:jaeger-io-samplingmanager-api
+  name: Jaeger SamplingManager API
+  description: The SamplingManager API from Jaeger — 2 operation(s) for samplingmanager.
+  humanURL: https://www.jaegertracing.io/docs/latest/apis/
+  tags:
+  - SamplingManager
+  properties:
+  - type: OpenAPI
+    url: openapi/jaeger-io-samplingmanager-api-openapi.yml
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/apis/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v3/query_service.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-span-schema.json
+  - type: JSONLD
+    url: json-ld/jaeger-io-context.jsonld
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
+  - type: Documentation
+    url: https://www.jaegertracing.io/docs/latest/sampling/
+  - type: ProtoBuf
+    url: https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
+  - type: JSONSchema
+    url: json-schema/jaeger-sampling-strategy-schema.json
 name: Jaeger
 tags:
   - Observability
@@ -73,7 +87,18 @@ tags:
   - Microservices
   - Open Source
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jaeger-io.png
 access: Open Source
 common:
   - type: AgenticAccess
