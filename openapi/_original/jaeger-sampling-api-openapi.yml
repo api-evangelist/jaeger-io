@@ -1,0 +1,130 @@
+# Hand-derived from https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/sampling.proto
+# Jaeger SamplingManager — the remote sampler that SDKs poll to retrieve
+# per-service sampling strategies.
+
+openapi: 3.0.3
+info:
+  title: Jaeger Sampling Manager API (api_v2)
+  version: '2.0'
+  description: |-
+    Remote sampling configuration API served by the Jaeger Collector / All-in-One
+    on port 5778 (HTTP) and 5779 (gRPC). Client SDKs poll this endpoint to retrieve
+    the active sampling strategy (probabilistic, rate-limiting, or per-operation)
+    for a given service.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:5778
+    description: Default Jaeger remote sampler endpoint
+paths:
+  /api/v2/samplingStrategy:
+    post:
+      summary: Get Sampling Strategy
+      description: |-
+        Retrieve the sampling strategy for the named service. The gRPC equivalent
+        is `jaeger.api_v2.SamplingManager/GetSamplingStrategy`.
+      operationId: getSamplingStrategy
+      tags:
+        - SamplingManager
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SamplingStrategyParameters'
+      responses:
+        '200':
+          description: Sampling strategy for the requested service.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamplingStrategyResponse'
+  /sampling:
+    get:
+      summary: Get Sampling Strategy (Legacy)
+      description: |-
+        Legacy HTTP form used by older Jaeger SDKs. The Collector / agent
+        returns the same SamplingStrategyResponse JSON; service name is given
+        via the `service` query parameter.
+      operationId: getSamplingStrategyLegacy
+      tags:
+        - SamplingManager
+      parameters:
+        - name: service
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Service name to look up.
+      responses:
+        '200':
+          description: Sampling strategy for the requested service.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SamplingStrategyResponse'
+components:
+  schemas:
+    SamplingStrategyParameters:
+      type: object
+      required:
+        - serviceName
+      properties:
+        serviceName:
+          type: string
+          description: Required service identifier.
+    SamplingStrategyResponse:
+      type: object
+      description: |-
+        Union-style response — exactly one of `probabilisticSampling`,
+        `rateLimitingSampling`, or `operationSampling` will be populated.
+      properties:
+        strategyType:
+          type: string
+          enum: [PROBABILISTIC, RATE_LIMITING]
+        probabilisticSampling:
+          $ref: '#/components/schemas/ProbabilisticSamplingStrategy'
+        rateLimitingSampling:
+          $ref: '#/components/schemas/RateLimitingSamplingStrategy'
+        operationSampling:
+          $ref: '#/components/schemas/PerOperationSamplingStrategies'
+    ProbabilisticSamplingStrategy:
+      type: object
+      properties:
+        samplingRate:
+          type: number
+          format: double
+          minimum: 0
+          maximum: 1
+          description: Sampling probability in the range [0.0, 1.0].
+    RateLimitingSamplingStrategy:
+      type: object
+      properties:
+        maxTracesPerSecond:
+          type: integer
+          format: int32
+          description: Maximum number of traces sampled per second per service instance.
+    OperationSamplingStrategy:
+      type: object
+      properties:
+        operation:
+          type: string
+        probabilisticSampling:
+          $ref: '#/components/schemas/ProbabilisticSamplingStrategy'
+    PerOperationSamplingStrategies:
+      type: object
+      properties:
+        defaultSamplingProbability:
+          type: number
+          format: double
+        defaultLowerBoundTracesPerSecond:
+          type: number
+          format: double
+        defaultUpperBoundTracesPerSecond:
+          type: number
+          format: double
+        perOperationStrategies:
+          type: array
+          items:
+            $ref: '#/components/schemas/OperationSamplingStrategy'

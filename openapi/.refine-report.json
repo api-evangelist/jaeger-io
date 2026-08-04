@@ -1,0 +1,18 @@
+{
+  "provider": "jaeger-io",
+  "sources": [
+    "jaeger-io-collectorservice-api-openapi.yml",
+    "jaeger-io-queryservice-api-openapi.yml",
+    "jaeger-io-samplingmanager-api-openapi.yml"
+  ],
+  "outputs": [
+    "jaeger-io-collectorservice-api-openapi.yml",
+    "jaeger-io-queryservice-api-openapi.yml",
+    "jaeger-io-samplingmanager-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

@@ -1,0 +1,150 @@
+# Hand-derived from https://github.com/jaegertracing/jaeger-idl/blob/main/proto/api_v2/collector.proto
+# Jaeger CollectorService gRPC + HTTP gateway. Spans are POSTed to the
+# Collector for storage and indexing.
+
+openapi: 3.0.3
+info:
+  title: Jaeger Collector API (api_v2)
+  version: '2.0'
+  description: |-
+    Jaeger Collector ingest API. The Collector accepts span batches over gRPC
+    on port 14250 (`jaeger.api_v2.CollectorService`) and over the HTTP gateway
+    at `/api/v2/spans`. Jaeger v2 (since November 2024) also accepts OTLP
+    natively on ports 4317 (gRPC) and 4318 (HTTP) and Zipkin on 9411; this
+    spec documents the native legacy api_v2 surface.
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: http://localhost:14268
+    description: Jaeger Collector legacy HTTP endpoint
+paths:
+  /api/v2/spans:
+    post:
+      summary: Post Spans
+      description: |-
+        Submit a batch of spans to the Jaeger Collector for storage. The
+        gRPC equivalent is `CollectorService/PostSpans`.
+      operationId: postSpans
+      tags:
+        - CollectorService
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostSpansRequest'
+          application/x-protobuf:
+            schema:
+              $ref: '#/components/schemas/PostSpansRequest'
+      responses:
+        '200':
+          description: Spans accepted by the collector.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostSpansResponse'
+components:
+  schemas:
+    PostSpansRequest:
+      type: object
+      required:
+        - batch
+      properties:
+        batch:
+          $ref: '#/components/schemas/Batch'
+    PostSpansResponse:
+      type: object
+      description: Empty response — successful ingest is signaled by 200 OK.
+    Batch:
+      type: object
+      description: A batch of spans from a single process. Mirrors `jaeger.api_v2.model.Batch`.
+      properties:
+        process:
+          $ref: '#/components/schemas/Process'
+        spans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Span'
+    Process:
+      type: object
+      properties:
+        serviceName:
+          type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+    Span:
+      type: object
+      properties:
+        traceId:
+          type: string
+          description: 16-byte trace identifier, hex-encoded.
+        spanId:
+          type: string
+          description: 8-byte span identifier, hex-encoded.
+        operationName:
+          type: string
+        references:
+          type: array
+          items:
+            $ref: '#/components/schemas/SpanRef'
+        flags:
+          type: integer
+          format: int32
+        startTime:
+          type: string
+          format: date-time
+        duration:
+          type: string
+          description: Duration in protobuf Duration format.
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+        logs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Log'
+    SpanRef:
+      type: object
+      properties:
+        traceId:
+          type: string
+        spanId:
+          type: string
+        refType:
+          type: string
+          enum: [CHILD_OF, FOLLOWS_FROM]
+    Log:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValue'
+    KeyValue:
+      type: object
+      properties:
+        key:
+          type: string
+        vType:
+          type: string
+          enum: [STRING, BOOL, INT64, FLOAT64, BINARY]
+        vStr:
+          type: string
+        vBool:
+          type: boolean
+        vInt64:
+          type: integer
+          format: int64
+        vFloat64:
+          type: number
+          format: double
+        vBinary:
+          type: string
+          format: byte
