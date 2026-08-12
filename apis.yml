@@ -101,6 +101,10 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jaeger-io.png
 access: Open Source
 common:
+  - type: IssueTracker
+    url: https://github.com/jaegertracing/jaeger/issues
+  - type: CodeOfConduct
+    url: https://github.com/jaegertracing/jaeger/blob/main/CODE_OF_CONDUCT.md
   - type: AgenticAccess
     url: agentic-access/jaeger-io-agentic-access.yml
   - type: DomainSecurity
