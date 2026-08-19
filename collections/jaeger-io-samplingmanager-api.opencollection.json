@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jaeger Collector API (api_v2) CollectorService SamplingManager API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SamplingManager",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Sampling Strategy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:14268/api/v2/samplingStrategy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve the sampling strategy for the named service. The gRPC equivalent\nis `jaeger.api_v2.SamplingManager/GetSamplingStrategy`."
+        },
+        {
+          "info": {
+            "name": "Get Sampling Strategy (Legacy)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:14268/sampling",
+            "params": [
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Service name to look up."
+              }
+            ]
+          },
+          "docs": "Legacy HTTP form used by older Jaeger SDKs. The Collector / agent\nreturns the same SamplingStrategyResponse JSON; service name is given\nvia the `service` query parameter."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

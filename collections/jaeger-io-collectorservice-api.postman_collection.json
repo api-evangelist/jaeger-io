@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "dca1ce7e-a740-415b-9775-9fbb8f89ebbc",
+      "name": "CollectorService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "484f0d3e-1e6b-4ada-941b-05d147af0d28",
+          "name": "Post Spans",
+          "request": {
+            "name": "Post Spans",
+            "description": {
+              "content": "Submit a batch of spans to the Jaeger Collector for storage. The\ngRPC equivalent is `CollectorService/PostSpans`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "spans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batch\": {\n    \"process\": {\n      \"serviceName\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"vType\": \"<string>\",\n          \"vStr\": \"<string>\",\n          \"vBool\": \"<boolean>\",\n          \"vInt64\": \"<long>\",\n          \"vFloat64\": \"<double>\",\n          \"vBinary\": \"<byte>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"vType\": \"<string>\",\n          \"vStr\": \"<string>\",\n          \"vBool\": \"<boolean>\",\n          \"vInt64\": \"<long>\",\n          \"vFloat64\": \"<double>\",\n          \"vBinary\": \"<byte>\"\n        }\n      ]\n    },\n    \"spans\": [\n      {\n        \"traceId\": \"<string>\",\n        \"spanId\": \"<string>\",\n        \"operationName\": \"<string>\",\n        \"references\": [\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          },\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          }\n        ],\n        \"flags\": \"<integer>\",\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"tags\": [\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          }\n        ],\n        \"logs\": [\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"traceId\": \"<string>\",\n        \"spanId\": \"<string>\",\n        \"operationName\": \"<string>\",\n        \"references\": [\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          },\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          }\n        ],\n        \"flags\": \"<integer>\",\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"tags\": [\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          }\n        ],\n        \"logs\": [\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9f1aca08-6ac1-42ed-8d50-4911efffd99e",
+              "name": "Spans accepted by the collector.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "spans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batch\": {\n    \"process\": {\n      \"serviceName\": \"<string>\",\n      \"tags\": [\n        {\n          \"key\": \"<string>\",\n          \"vType\": \"<string>\",\n          \"vStr\": \"<string>\",\n          \"vBool\": \"<boolean>\",\n          \"vInt64\": \"<long>\",\n          \"vFloat64\": \"<double>\",\n          \"vBinary\": \"<byte>\"\n        },\n        {\n          \"key\": \"<string>\",\n          \"vType\": \"<string>\",\n          \"vStr\": \"<string>\",\n          \"vBool\": \"<boolean>\",\n          \"vInt64\": \"<long>\",\n          \"vFloat64\": \"<double>\",\n          \"vBinary\": \"<byte>\"\n        }\n      ]\n    },\n    \"spans\": [\n      {\n        \"traceId\": \"<string>\",\n        \"spanId\": \"<string>\",\n        \"operationName\": \"<string>\",\n        \"references\": [\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          },\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          }\n        ],\n        \"flags\": \"<integer>\",\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"tags\": [\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          }\n        ],\n        \"logs\": [\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      {\n        \"traceId\": \"<string>\",\n        \"spanId\": \"<string>\",\n        \"operationName\": \"<string>\",\n        \"references\": [\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          },\n          {\n            \"traceId\": \"<string>\",\n            \"spanId\": \"<string>\",\n            \"refType\": \"<string>\"\n          }\n        ],\n        \"flags\": \"<integer>\",\n        \"startTime\": \"<dateTime>\",\n        \"duration\": \"<string>\",\n        \"tags\": [\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          },\n          {\n            \"key\": \"<string>\",\n            \"vType\": \"<string>\",\n            \"vStr\": \"<string>\",\n            \"vBool\": \"<boolean>\",\n            \"vInt64\": \"<long>\",\n            \"vFloat64\": \"<double>\",\n            \"vBinary\": \"<byte>\"\n          }\n        ],\n        \"logs\": [\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"timestamp\": \"<dateTime>\",\n            \"fields\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:14268",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a5353c6e-c9b4-4d16-84e9-b0a5649a3d6d",
+    "name": "Jaeger Collector API (api_v2) CollectorService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Jaeger Collector ingest API. The Collector accepts span batches over gRPC\non port 14250 (`jaeger.api_v2.CollectorService`) and over the HTTP gateway\nat `/api/v2/spans`. Jaeger v2 (since November 2024) also accepts OTLP\nnatively on ports 4317 (gRPC) and 4318 (HTTP) and Zipkin on 9411; this\nspec documents the native legacy api_v2 surface.",
+      "type": "text/plain"
+    }
+  }
+}

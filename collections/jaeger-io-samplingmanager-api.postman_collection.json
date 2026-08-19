@@ -1,0 +1,209 @@
+{
+  "item": [
+    {
+      "id": "de9a32c5-1f07-48e9-91c8-5e4e23d1516f",
+      "name": "SamplingManager",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f1b034f-527d-49f4-8fa6-cccacfbf4a4f",
+          "name": "Get Sampling Strategy",
+          "request": {
+            "name": "Get Sampling Strategy",
+            "description": {
+              "content": "Retrieve the sampling strategy for the named service. The gRPC equivalent\nis `jaeger.api_v2.SamplingManager/GetSamplingStrategy`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "samplingStrategy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"serviceName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "72bf2350-3dfe-4d85-aeaf-dba23a8468dd",
+              "name": "Sampling strategy for the requested service.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "samplingStrategy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"serviceName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"strategyType\": \"RATE_LIMITING\",\n  \"probabilisticSampling\": {\n    \"samplingRate\": 0.03487275631076869\n  },\n  \"rateLimitingSampling\": {\n    \"maxTracesPerSecond\": 8890\n  },\n  \"operationSampling\": {\n    \"defaultSamplingProbability\": 789.1938763833384,\n    \"defaultLowerBoundTracesPerSecond\": 6934.465092399603,\n    \"defaultUpperBoundTracesPerSecond\": 3147.929948575685,\n    \"perOperationStrategies\": [\n      {\n        \"operation\": \"string\",\n        \"probabilisticSampling\": {\n          \"samplingRate\": 0.6935138884088725\n        }\n      },\n      {\n        \"operation\": \"string\",\n        \"probabilisticSampling\": {\n          \"samplingRate\": 0.47291158589502424\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d568b9ab-361e-4c7f-8601-fef85b943b64",
+          "name": "Get Sampling Strategy (Legacy)",
+          "request": {
+            "name": "Get Sampling Strategy (Legacy)",
+            "description": {
+              "content": "Legacy HTTP form used by older Jaeger SDKs. The Collector / agent\nreturns the same SamplingStrategyResponse JSON; service name is given\nvia the `service` query parameter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sampling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "service",
+                  "value": "<string>",
+                  "description": "(Required) Service name to look up."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9edb245-0e66-4bc6-8da2-6cda293acce5",
+              "name": "Sampling strategy for the requested service.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sampling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "service",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"strategyType\": \"RATE_LIMITING\",\n  \"probabilisticSampling\": {\n    \"samplingRate\": 0.5081146727809251\n  },\n  \"rateLimitingSampling\": {\n    \"maxTracesPerSecond\": 4043\n  },\n  \"operationSampling\": {\n    \"defaultSamplingProbability\": 6974.435976835599,\n    \"defaultLowerBoundTracesPerSecond\": 2154.4716947257702,\n    \"defaultUpperBoundTracesPerSecond\": 2153.7771066031364,\n    \"perOperationStrategies\": [\n      {\n        \"operation\": \"string\",\n        \"probabilisticSampling\": {\n          \"samplingRate\": 0.9332314170016072\n        }\n      },\n      {\n        \"operation\": \"string\",\n        \"probabilisticSampling\": {\n          \"samplingRate\": 0.9449294084126959\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:14268",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d73714f9-ef4c-4e66-88bf-6da9e4399fba",
+    "name": "Jaeger Collector API (api_v2) CollectorService SamplingManager API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Jaeger Collector ingest API. The Collector accepts span batches over gRPC\non port 14250 (`jaeger.api_v2.CollectorService`) and over the HTTP gateway\nat `/api/v2/spans`. Jaeger v2 (since November 2024) also accepts OTLP\nnatively on ports 4317 (gRPC) and 4318 (HTTP) and Zipkin on 9411; this\nspec documents the native legacy api_v2 surface.",
+      "type": "text/plain"
+    }
+  }
+}

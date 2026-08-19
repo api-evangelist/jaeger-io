@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jaeger Collector API (api_v2) CollectorService API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CollectorService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Post Spans",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://localhost:14268/api/v2/spans",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a batch of spans to the Jaeger Collector for storage. The\ngRPC equivalent is `CollectorService/PostSpans`."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
